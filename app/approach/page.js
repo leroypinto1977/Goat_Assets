@@ -1,3 +1,5 @@
+import PageHero from "@/components/PageHero";
+
 export const metadata = {
   title: "Our Approach | GOAT Assets | A Proven Strategy",
   description: "Discover GOAT Assets' structured 5-step advisory process: Discover, Analyze, Advise, Execute, and Deliver Value.",
@@ -34,15 +36,16 @@ export default function Approach() {
 
   return (
     <main>
+      <PageHero
+        eyebrow="Our Approach"
+        title="A Proven Approach."
+        accent="Consistent Outcomes."
+        crumbs={[{ label: "Home", href: "/" }, { label: "Our Approach" }]}
+      />
       <section style={{ paddingBottom: 0 }}>
         <div className="container">
-          {/* Section Header */}
+          {/* Section intro */}
           <div className="reveal" style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <span className="section-label">Our Approach</span>
-            <h2 className="section-title">
-              A Proven Approach.<br />
-              <em>Consistent Outcomes.</em>
-            </h2>
             <p className="section-description" style={{ margin: '0 auto' }}>
               Our approach is built on a deep understanding of markets, disciplined analysis and a commitment to execution.
             </p>
@@ -65,7 +68,7 @@ export default function Approach() {
           <div className="container approach-metrics-container">
             <div className="approach-metrics-pitch">
               Insight. Strategy. Execution.<br />
-              That's how we create real value.
+              That&rsquo;s how we create real value.
             </div>
             <div className="approach-metrics-values">
               <div className="approach-metric">

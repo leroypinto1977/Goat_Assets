@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Logo from '@/components/Logo';
 
 export default function Header() {
   const pathname = usePathname();
@@ -26,12 +27,6 @@ export default function Header() {
     };
   }, []);
 
-  // Close mobile menu when navigating
-  useEffect(() => {
-    setIsMenuOpen(false);
-    document.body.style.overflow = '';
-  }, [pathname]);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     if (!isMenuOpen) {
@@ -41,10 +36,19 @@ export default function Header() {
     }
   };
 
+  // Close the mobile menu when a nav link is tapped
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    document.body.style.overflow = '';
+  };
+
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
     { label: 'Services', href: '/services' },
+    { label: 'Sectors', href: '/sectors' },
+    { label: 'Case Studies', href: '/case-studies' },
+    { label: 'Careers', href: '/careers' },
   ];
 
   return (
@@ -52,7 +56,7 @@ export default function Header() {
       <div className="container navbar-container">
         {/* Left aligned logo */}
         <Link href="/" className="logo-link">
-          <img src="/assets/logo.svg" alt="GOAT Assets Logo" className="logo-img" />
+          <Logo className="logo-img" />
         </Link>
         
         {/* Centered navigation links */}
@@ -60,14 +64,21 @@ export default function Header() {
           <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link 
-                  href={link.href} 
+                <Link
+                  href={link.href}
                   className={`nav-link ${pathname === link.href ? 'active' : ''}`}
+                  onClick={closeMenu}
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
+            {/* Mobile-only CTA so Contact is reachable inside the menu */}
+            <li className="nav-cta-mobile">
+              <Link href="/contact" className="btn btn-primary" onClick={closeMenu}>
+                Get In Touch
+              </Link>
+            </li>
           </ul>
         </nav>
         

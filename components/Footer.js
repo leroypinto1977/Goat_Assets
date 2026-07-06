@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Logo from '@/components/Logo';
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="container footer-top">
         {/* Column 1: Brand */}
         <div className="footer-brand">
-          <img src="/assets/logo.svg" alt="GOAT Assets Logo" className="footer-logo footer-logo-svg" style={{ filter: 'brightness(0) invert(1)' }} />
+          <Logo className="footer-logo footer-logo-svg" style={{ filter: 'brightness(0) invert(1)' }} />
           <p className="footer-tagline">Real estate advisory.<br />Real value.</p>
           <div className="footer-socials">
             <a href="https://linkedin.com/company/goat-assets" className="footer-social-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
@@ -28,7 +29,11 @@ export default function Footer() {
           <ul className="footer-links">
             <li><Link href="/about">About Us</Link></li>
             <li><Link href="/approach">Our Approach</Link></li>
+            <li><Link href="/sectors">Sectors</Link></li>
+            <li><Link href="/case-studies">Case Studies</Link></li>
+            <li><Link href="/sustainability">Sustainability</Link></li>
             <li><Link href="/careers">Careers</Link></li>
+            <li><Link href="/faq">FAQ</Link></li>
             <li><Link href="/contact">Contact Us</Link></li>
           </ul>
         </div>
@@ -37,26 +42,16 @@ export default function Footer() {
         <div>
           <h4 className="footer-col-title">Services</h4>
           <ul className="footer-links">
-            <li><Link href="/services">Investment Advisory</Link></li>
-            <li><Link href="/services">Transactions Advisory</Link></li>
-            <li><Link href="/services">Leasing Advisory</Link></li>
-            <li><Link href="/services">Valuation &amp; Advisory</Link></li>
-            <li><Link href="/services">Project Advisory</Link></li>
-            <li><Link href="/services">Capital Markets</Link></li>
+            <li><Link href="/services/investment-advisory">Investment Advisory</Link></li>
+            <li><Link href="/services/transactions-advisory">Transactions Advisory</Link></li>
+            <li><Link href="/services/leasing-advisory">Leasing Advisory</Link></li>
+            <li><Link href="/services/valuation-advisory">Valuation &amp; Advisory</Link></li>
+            <li><Link href="/services/project-advisory">Project Advisory</Link></li>
+            <li><Link href="/services/capital-markets">Capital Markets</Link></li>
           </ul>
         </div>
         
-        {/* Column 4: Insights */}
-        <div>
-          <h4 className="footer-col-title">Insights</h4>
-          <ul className="footer-links">
-            <li><Link href="/insights">Market Insights</Link></li>
-            <li><Link href="/insights">Reports &amp; Publications</Link></li>
-            <li><Link href="/insights">News &amp; Updates</Link></li>
-          </ul>
-        </div>
-        
-        {/* Column 5: Contact Info */}
+        {/* Column 4: Contact Info */}
         <div>
           <h4 className="footer-col-title">Get In Touch</h4>
           <div className="footer-contact-info">
@@ -87,8 +82,8 @@ export default function Footer() {
       <div className="container footer-bottom">
         <p className="copyright">&copy; 2026 GOAT Assets. All Rights Reserved.</p>
         <div className="footer-legal-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms of Use</Link>
         </div>
       </div>
     </footer>

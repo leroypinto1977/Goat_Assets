@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import PageHero from '@/components/PageHero';
+import { jobs } from '@/lib/jobs';
 
 export const metadata = {
   title: "Careers | GOAT Assets | Join Our Advisory Team",
@@ -53,29 +56,67 @@ export default function Careers() {
 
   return (
     <main>
+      <PageHero
+        eyebrow="Careers"
+        title="Build Your Career."
+        accent="Create Real Impact."
+        crumbs={[{ label: "Home", href: "/" }, { label: "Careers" }]}
+      />
       <section>
         <div className="container">
           {/* Top Split Section */}
           <div className="careers-grid">
             {/* Left Content */}
             <div className="reveal">
-              <span className="section-label">Careers</span>
-              <h2 className="section-title">
-                Build Your Career.<br />
-                <em>Create Real Impact.</em>
-              </h2>
               <p className="section-description" style={{ maxWidth: '100%' }}>
-                At GOAT Assets, you'll work with passionate professionals, solve complex commercial challenges, and grow in a high-performance advisory environment. We empower our teams to take ownership of projects and think creatively to unlock client value.
+                At GOAT Assets, you&rsquo;ll work with passionate professionals, solve complex commercial challenges, and grow in a high-performance advisory environment. We empower our teams to take ownership of projects and think creatively to unlock client value.
               </p>
-              <Link href="#" className="btn btn-primary">
-                View Open Positions 
-                <span style={{ fontSize: '14px', marginLeft: '2px' }}>→</span>
-              </Link>
+              <a href="#openings" className="btn btn-primary">
+                View Open Roles
+                <span style={{ fontSize: '14px', marginLeft: '2px' }}>↓</span>
+              </a>
             </div>
 
             {/* Right Silhouette Image */}
             <div className="careers-img-container reveal reveal-delay-2">
-              <img src="/assets/images/careers_corporate.png" alt="Corporate Professionals Silhouette" className="careers-img" />
+              <Image src="/assets/images/careers_corporate.png" alt="Corporate Professionals Silhouette" fill sizes="(max-width: 991px) 100vw, 50vw" className="careers-img" />
+            </div>
+          </div>
+
+          {/* Open Positions */}
+          <div id="openings" className="openings-block">
+            <div className="reveal" style={{ marginBottom: '40px' }}>
+              <span className="section-label">Open Positions</span>
+              <h2 className="section-title">
+                Current <em>Openings.</em>
+              </h2>
+              <p className="section-description" style={{ maxWidth: '100%' }}>
+                Explore our current opportunities. Don&rsquo;t see a perfect fit? We still want to hear from you.
+              </p>
+            </div>
+            <div className="jobs-list">
+              {jobs.map((job, index) => (
+                <Link
+                  key={job.slug}
+                  href={`/careers/${job.slug}`}
+                  className={`job-row reveal reveal-delay-${index % 4}`}
+                >
+                  <div className="job-row-main">
+                    <h3 className="job-row-title">{job.title}</h3>
+                    <div className="job-row-meta">
+                      <span>{job.department}</span>
+                      <span className="job-dot">•</span>
+                      <span>{job.location}</span>
+                      <span className="job-dot">•</span>
+                      <span>{job.type}</span>
+                    </div>
+                  </div>
+                  <span className="job-row-cta">
+                    View Role
+                    <span className="job-row-arrow">→</span>
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -99,7 +140,7 @@ export default function Careers() {
           {/* Banner for Talent Pipeline */}
           <div className="careers-cta-banner reveal">
             <div className="careers-cta-text">
-              <h4>Don't see the right role?</h4>
+              <h4>Don&rsquo;t see the right role?</h4>
               <p>We are always looking for exceptional, values-driven advisory talent.</p>
             </div>
             <Link href="/contact" className="btn btn-outline">

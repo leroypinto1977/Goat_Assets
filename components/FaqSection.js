@@ -1,11 +1,7 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
+import Accordion from '@/components/Accordion';
 
 export default function FaqSection() {
-  const [activeIndex, setActiveIndex] = useState(null);
-
   const faqs = [
     {
       question: "What types of real estate assets do you advise on?",
@@ -25,10 +21,6 @@ export default function FaqSection() {
     }
   ];
 
-  const toggleFaq = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   return (
     <section className="faq-section" style={{ borderTop: '1px solid var(--color-border)' }}>
       <div className="container">
@@ -43,9 +35,13 @@ export default function FaqSection() {
             <p className="section-description" style={{ maxWidth: '100%' }}>
               Find answers to common inquiries about our real estate advisory practices, transaction execution, and valuation services.
             </p>
-            <div style={{ marginTop: '30px' }}>
+            <div style={{ marginTop: '30px', display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
+              <Link href="/faq" className="btn btn-primary">
+                View All FAQs
+                <span style={{ fontSize: '14px', marginLeft: '2px' }}>→</span>
+              </Link>
               <Link href="/contact" className="btn btn-outline">
-                Ask A Question 
+                Ask A Question
                 <span style={{ fontSize: '14px', marginLeft: '2px' }}>→</span>
               </Link>
             </div>
@@ -53,42 +49,7 @@ export default function FaqSection() {
 
           {/* Right Column (Accordion List) */}
           <div className="faq-accordion reveal reveal-delay-2">
-            {faqs.map((faq, index) => {
-              const isOpen = activeIndex === index;
-              return (
-                <div 
-                  key={index} 
-                  className={`faq-item ${isOpen ? 'open' : ''}`}
-                  onClick={() => toggleFaq(index)}
-                  style={{ cursor: 'pointer' }}
-                >
-                  <div className="faq-question-row">
-                    <h3 className="faq-question">{faq.question}</h3>
-                    <div className="faq-toggle-icon">
-                      <svg 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2"
-                        style={{
-                          width: '18px',
-                          height: '18px',
-                          transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                          transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
-                        }}
-                      >
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="faq-answer-container">
-                    <div className="faq-answer-inner">
-                      <p className="faq-answer">{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            <Accordion items={faqs} idPrefix="home" />
           </div>
         </div>
       </div>

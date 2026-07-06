@@ -1,13 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import PageHero from '@/components/PageHero';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    company: '' // honeypot — must stay empty
   });
 
   const [formStatus, setFormStatus] = useState({
@@ -30,7 +32,7 @@ export default function Contact() {
     return re.test(String(email).toLowerCase());
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus({ type: '', text: '' });
 
@@ -54,35 +56,50 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate network delay
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      const result = await res.json().catch(() => ({}));
+
+      if (res.ok && result.ok) {
+        setFormStatus({
+          type: 'success',
+          text: 'Thank you! Your message has been sent successfully. We will get back to you shortly.'
+        });
+        setFormData({ name: '', email: '', phone: '', message: '', company: '' });
+      } else {
+        setFormStatus({
+          type: 'error',
+          text: result.error || 'Something went wrong. Please try again.'
+        });
+      }
+    } catch {
       setFormStatus({
-        type: 'success',
-        text: 'Thank you! Your message has been sent successfully. We will get back to you shortly.'
+        type: 'error',
+        text: 'Network error. Please check your connection and try again.'
       });
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-      });
-    }, 1500);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <main>
+      <PageHero
+        eyebrow="Contact Us"
+        title="Let's Connect."
+        accent="Create Value Together."
+        crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+      />
       <section>
         <div className="container">
           <div className="contact-grid">
             {/* Left Column: Info + Interior Image */}
             <div className="contact-info-col reveal">
               <div>
-                <span className="section-label">Contact Us</span>
-                <h2 className="section-title">
-                  Let's Connect.<br />
-                  <em>Create Value Together.</em>
-                </h2>
                 <p className="section-description" style={{ maxWidth: '100%', marginBottom: '40px' }}>
                   Reach out to us for any inquiries or to discuss how we can help you achieve your business goals.
                 </p>
@@ -130,6 +147,20 @@ export default function Contact() {
                     </div>
                   </div>
 
+                  {/* Office Hours */}
+                  <div className="contact-item">
+                    <div className="contact-item-icon">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                    </div>
+                    <div className="contact-item-content">
+                      <h4>Office Hours</h4>
+                      <p>Monday &ndash; Friday, 9:30am &ndash; 6:30pm IST</p>
+                    </div>
+                  </div>
+
                   {/* Socials */}
                   <div className="contact-item">
                     <div className="contact-item-icon">
@@ -146,9 +177,15 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Bottom Interior lobby image */}
-              <div className="contact-lobby-container">
-                <img src="/assets/images/contact_interior.png" alt="GOAT Assets Office Reception Lobby Lounge" className="contact-lobby-img" />
+              {/* Office location map */}
+              <div className="contact-map">
+                <iframe
+                  title="GOAT Assets office location — One BKC, Mumbai"
+                  src="https://www.google.com/maps?q=One%20BKC%2C%20Bandra%20Kurla%20Complex%2C%20Mumbai&output=embed"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                ></iframe>
               </div>
             </div>
 
@@ -157,6 +194,19 @@ export default function Contact() {
               <h3 className="contact-form-title">Send Us a Message</h3>
               
               <form onSubmit={handleSubmit} noValidate>
+                {/* Honeypot — hidden from users, catches bots */}
+                <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+                  <label htmlFor="company">Company (leave blank)</label>
+                  <input
+                    type="text"
+                    id="company"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                  />
+                </div>
+
                 {/* Name Input */}
                 <div className="form-group">
                   <input 
