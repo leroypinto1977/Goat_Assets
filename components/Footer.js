@@ -44,6 +44,7 @@ export default function Footer() {
           <ul className="footer-links">
             <li><Link href="/services/investment-advisory">Investment Advisory</Link></li>
             <li><Link href="/services/transactions-advisory">Transactions Advisory</Link></li>
+            <li><Link href="/services/legal-documentation">Legal &amp; Documentation</Link></li>
             <li><Link href="/services/leasing-advisory">Leasing Advisory</Link></li>
             <li><Link href="/services/valuation-advisory">Valuation &amp; Advisory</Link></li>
             <li><Link href="/services/project-advisory">Project Advisory</Link></li>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
+import StatCounter from "@/components/StatCounter";
 
 export const metadata = {
   title: "Case Studies | GOAT Assets | Our Track Record",
@@ -135,7 +136,7 @@ export default function CaseStudies() {
           <div className="stats-grid">
             {stats.map((s, i) => (
               <div key={i} className="stats-card">
-                <div className="stats-number">{s.value}</div>
+                <div className="stats-number"><StatCounter value={s.value} /></div>
                 <div className="stats-label">{s.label}</div>
               </div>
             ))}

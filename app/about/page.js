@@ -1,9 +1,10 @@
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import StatCounter from "@/components/StatCounter";
 
 export const metadata = {
   title: "About Us | GOAT Assets | Built on Insight. Driven by Value.",
-  description: "Learn about GOAT Assets, our core values (Integrity, Excellence, Partnership, Impact), and our experienced real estate advisory team.",
+  description: "Learn about GOAT Assets — partner to India's leading developers, with complete legal and documentation support for every buyer. Our values, journey and team.",
 };
 
 export default function About() {
@@ -35,13 +36,13 @@ export default function About() {
     },
   ];
 
-  // Placeholder milestones & credentials — replace with the firm's real history and memberships.
+  // Placeholder milestones — replace with the firm's real history.
   const milestones = [
     { year: "2014", text: "Founded in Mumbai with a focus on insight-led advisory." },
     { year: "2017", text: "Expanded coverage to major metros across India." },
     { year: "2020", text: "Crossed ₹5,000 Cr in assets advised." },
     { year: "2023", text: "Delivered our 100th advisory mandate." },
-    { year: "2024", text: "₹10,000+ Cr advised across the lifecycle." },
+    { year: "2026", text: "Launched developer partnerships and our buyer legal & documentation practice." },
   ];
 
   const credentials = [
@@ -59,17 +60,18 @@ export default function About() {
         accent="Driven by Value."
         crumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
       />
+
+      {/* Intro — who we are today */}
       <section style={{ paddingBottom: 0 }}>
         <div className="container">
-          {/* Split Top Section */}
           <div className="about-grid">
             {/* Left side content */}
-            <div className="reveal">
+            <div className="reveal reveal-left">
               <p className="section-description" style={{ maxWidth: '100%' }}>
-                GOAT Assets was founded with a simple belief - real estate decisions should be guided by deep insight, strategic thinking and unwavering integrity.
+                GOAT Assets began as an advisory practice with one conviction — property decisions deserve the same rigour, research and honesty as any institutional investment.
               </p>
               <p className="section-description" style={{ maxWidth: '100%', marginTop: '-20px' }}>
-                We partner with our clients to unlock opportunities, mitigate risks and create lasting value across the real estate lifecycle. Our collaborative approach and technical rigor allow us to structure transactions and recommend strategies that produce superior investment outcomes.
+                Today we partner with India&rsquo;s leading developers to represent their finest projects, advise buyers and investors at every step, and verify every legal document before a deal is signed — with a portfolio of our own developments on the horizon.
               </p>
 
               <div className="about-facts">
@@ -87,57 +89,71 @@ export default function About() {
                 </div>
                 <div className="about-fact">
                   <span className="about-fact-label">Focus</span>
-                  <span className="about-fact-value">Full-lifecycle advisory</span>
+                  <span className="about-fact-value">Brokerage &middot; Legal &middot; Advisory</span>
                 </div>
               </div>
             </div>
-            
-            {/* Right side vertical image */}
-            <div className="about-img-container reveal reveal-delay-2">
-              <Image src="/assets/images/about_building.png" alt="Modern Architecture Office facade" fill sizes="(max-width: 991px) 100vw, 50vw" className="about-img" />
-            </div>
-          </div>
 
-          {/* Story + Mission & Vision */}
-          <div className="mv-block">
-            <div className="reveal" style={{ maxWidth: '720px', marginBottom: '48px' }}>
-              <span className="section-label">Our Story</span>
-              <h2 className="section-title">
-                Founded to Raise <em>the Standard.</em>
-              </h2>
-              <p className="section-description" style={{ maxWidth: '100%' }}>
-                GOAT Assets was established by advisors who believe real estate decisions deserve deeper rigour, sharper insight and genuine partnership. We bring institutional discipline to every mandate &mdash; pairing local market intelligence with technical excellence to help our clients move with confidence.
-              </p>
-            </div>
-            <div className="mv-grid">
-              <div className="mv-card reveal">
-                <div className="mv-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <circle cx="12" cy="12" r="10" />
-                    <circle cx="12" cy="12" r="6" />
-                    <circle cx="12" cy="12" r="2" />
-                  </svg>
+            {/* Right side vertical image — gold drifting frame, matching the homepage */}
+            <div className="reveal reveal-right reveal-delay-2">
+              <div className="image-frame">
+                <div className="image-frame-inner" style={{ height: '520px' }}>
+                  <Image src="/assets/images/about_building.png" alt="Modern Architecture Office facade" fill sizes="(max-width: 991px) 100vw, 50vw" className="about-img" />
                 </div>
-                <h3 className="mv-card-title">Our Mission</h3>
-                <p className="mv-card-desc">
-                  To help our clients unlock opportunity, mitigate risk and create measurable, lasting value across the real estate lifecycle.
-                </p>
-              </div>
-              <div className="mv-card reveal reveal-delay-1">
-                <div className="mv-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                </div>
-                <h3 className="mv-card-title">Our Vision</h3>
-                <p className="mv-card-desc">
-                  To be the most trusted real estate advisory partner in the markets we serve &mdash; defined by insight, integrity and outcomes.
-                </p>
               </div>
             </div>
           </div>
+        </div>
 
+        {/* Our Story — dark band with Mission & Vision */}
+        <div className="story-band">
+          <div className="container">
+            <div className="story-grid">
+              <div className="reveal reveal-left">
+                <span className="section-label">Our Story</span>
+                <h2 className="section-title">
+                  Founded to Raise <em>the Standard.</em>
+                </h2>
+                <p className="section-description" style={{ maxWidth: '100%' }}>
+                  GOAT Assets was established by advisors who believe real estate deserves deeper rigour, sharper insight and genuine partnership. We bring institutional discipline to every mandate &mdash; pairing local market intelligence with technical excellence.
+                </p>
+                <p className="section-description" style={{ maxWidth: '100%', marginTop: '-16px', marginBottom: 0 }}>
+                  That discipline is why leading developers trust us to represent their projects &mdash; and why buyers trust us to check every title, approval and registration before they sign. We only succeed when both sides of a transaction walk away confident.
+                </p>
+              </div>
+
+              <div className="story-mv reveal reveal-right reveal-delay-1">
+                <div className="mv-card">
+                  <div className="mv-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <circle cx="12" cy="12" r="10" />
+                      <circle cx="12" cy="12" r="6" />
+                      <circle cx="12" cy="12" r="2" />
+                    </svg>
+                  </div>
+                  <h3 className="mv-card-title">Our Mission</h3>
+                  <p className="mv-card-desc">
+                    To help our clients unlock opportunity, mitigate risk and create measurable, lasting value across the real estate lifecycle.
+                  </p>
+                </div>
+                <div className="mv-card">
+                  <div className="mv-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <h3 className="mv-card-title">Our Vision</h3>
+                  <p className="mv-card-desc">
+                    To be the most trusted real estate partner in the markets we serve &mdash; defined by insight, integrity and outcomes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="container">
           {/* Values header */}
           <div className="reveal" style={{ marginTop: '100px', marginBottom: '48px' }}>
             <span className="section-label">What Drives Us</span>
@@ -148,7 +164,6 @@ export default function About() {
 
           {/* Values Cards Grid */}
           <div className="features-grid">
-            {/* Card 1 */}
             <div className="feature-card reveal">
               <div className="feature-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -159,7 +174,6 @@ export default function About() {
               <p className="feature-card-desc">We act with honesty, transparency and accountability in all client engagements.</p>
             </div>
 
-            {/* Card 2 */}
             <div className="feature-card reveal reveal-delay-1">
               <div className="feature-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -171,7 +185,6 @@ export default function About() {
               <p className="feature-card-desc">We deliver high-quality, research-backed advice supported by rigorous market analysis.</p>
             </div>
 
-            {/* Card 3 */}
             <div className="feature-card reveal reveal-delay-2">
               <div className="feature-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -184,7 +197,6 @@ export default function About() {
               <p className="feature-card-desc">We build long-term relationships based on shared goals, trust, and mutual success.</p>
             </div>
 
-            {/* Card 4 */}
             <div className="feature-card reveal reveal-delay-3">
               <div className="feature-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
@@ -194,6 +206,25 @@ export default function About() {
               </div>
               <h3 className="feature-card-title">Impact</h3>
               <p className="feature-card-desc">We create sustainable value for our clients, their projects, and the wider community.</p>
+            </div>
+          </div>
+
+          {/* Our Journey timeline */}
+          <div className="journey-block">
+            <div className="reveal" style={{ textAlign: 'center', marginBottom: '56px' }}>
+              <span className="section-label">Our Journey</span>
+              <h2 className="section-title">
+                A Decade of <em>Growth.</em>
+              </h2>
+            </div>
+            <div className="journey-timeline">
+              {milestones.map((m, index) => (
+                <div key={index} className={`journey-item reveal reveal-delay-${index % 4}`}>
+                  <span className="journey-year">{m.year}</span>
+                  <span className="journey-dot" aria-hidden="true"></span>
+                  <p className="journey-text">{m.text}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -220,25 +251,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Our Journey timeline */}
-          <div className="journey-block">
-            <div className="reveal" style={{ textAlign: 'center', marginBottom: '56px' }}>
-              <span className="section-label">Our Journey</span>
-              <h2 className="section-title">
-                A Decade of <em>Growth.</em>
-              </h2>
-            </div>
-            <div className="journey-timeline">
-              {milestones.map((m, index) => (
-                <div key={index} className={`journey-item reveal reveal-delay-${index % 4}`}>
-                  <span className="journey-year">{m.year}</span>
-                  <span className="journey-dot" aria-hidden="true"></span>
-                  <p className="journey-text">{m.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* Credentials & Affiliations */}
           <div className="credentials-block">
             <div className="reveal" style={{ textAlign: 'center', marginBottom: '48px' }}>
@@ -249,7 +261,7 @@ export default function About() {
             </div>
             <div className="credentials-grid">
               {credentials.map((c, index) => (
-                <div key={index} className="credential-item reveal">
+                <div key={index} className={`credential-item reveal reveal-delay-${index % 4}`}>
                   <span className="credential-name">{c.name}</span>
                   <span className="credential-note">{c.note}</span>
                 </div>
@@ -263,17 +275,17 @@ export default function About() {
           <div className="container">
             <div className="metrics-grid">
               <div className="metrics-card">
-                <div className="metrics-number">10+</div>
+                <div className="metrics-number"><StatCounter value="10+" /></div>
                 <div className="metrics-label">Years of Experience</div>
                 <div className="metrics-subtext">Proven track record in advisory</div>
               </div>
               <div className="metrics-card">
-                <div className="metrics-number">50+</div>
+                <div className="metrics-number"><StatCounter value="50+" /></div>
                 <div className="metrics-label">Professionals</div>
                 <div className="metrics-subtext">Highly qualified specialists</div>
               </div>
               <div className="metrics-card">
-                <div className="metrics-number">8</div>
+                <div className="metrics-number"><StatCounter value="8" /></div>
                 <div className="metrics-label">Cities</div>
                 <div className="metrics-subtext">Active presence in major hubs</div>
               </div>

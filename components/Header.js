@@ -42,13 +42,12 @@ export default function Header() {
     document.body.style.overflow = '';
   };
 
+  // Lean top nav — Sectors & Careers live in the footer (sectors also via home portfolio cards)
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
     { label: 'Services', href: '/services' },
-    { label: 'Sectors', href: '/sectors' },
     { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Careers', href: '/careers' },
   ];
 
   return (

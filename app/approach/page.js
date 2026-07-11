@@ -1,4 +1,6 @@
 import PageHero from "@/components/PageHero";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import StatCounter from "@/components/StatCounter";
 
 export const metadata = {
   title: "Our Approach | GOAT Assets | A Proven Strategy",
@@ -51,16 +53,8 @@ export default function Approach() {
             </p>
           </div>
 
-          {/* 5-Step Process Timeline Flow */}
-          <div className="approach-flow">
-            {steps.map((step, index) => (
-              <div key={index} className={`approach-step reveal reveal-delay-${index}`}>
-                <div className="step-number">{step.num}</div>
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-desc">{step.desc}</p>
-              </div>
-            ))}
-          </div>
+          {/* 5-Step Process Timeline Flow — line draws itself on scroll */}
+          <ProcessTimeline steps={steps} />
         </div>
 
         {/* Bottom Approach Metrics Strip */}
@@ -72,15 +66,15 @@ export default function Approach() {
             </div>
             <div className="approach-metrics-values">
               <div className="approach-metric">
-                <div className="approach-metric-val">100+</div>
+                <div className="approach-metric-val"><StatCounter value="100+" /></div>
                 <div className="approach-metric-lbl">Projects Delivered</div>
               </div>
               <div className="approach-metric">
-                <div className="approach-metric-val">₹ 10,000+ Cr</div>
+                <div className="approach-metric-val"><StatCounter value="₹ 10,000+ Cr" /></div>
                 <div className="approach-metric-lbl">Assets Advised</div>
               </div>
               <div className="approach-metric">
-                <div className="approach-metric-val">50+</div>
+                <div className="approach-metric-val"><StatCounter value="50+" /></div>
                 <div className="approach-metric-lbl">Happy Clients</div>
               </div>
             </div>

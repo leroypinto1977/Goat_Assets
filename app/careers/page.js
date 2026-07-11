@@ -67,7 +67,7 @@ export default function Careers() {
           {/* Top Split Section */}
           <div className="careers-grid">
             {/* Left Content */}
-            <div className="reveal">
+            <div className="reveal reveal-left">
               <p className="section-description" style={{ maxWidth: '100%' }}>
                 At GOAT Assets, you&rsquo;ll work with passionate professionals, solve complex commercial challenges, and grow in a high-performance advisory environment. We empower our teams to take ownership of projects and think creatively to unlock client value.
               </p>
@@ -78,7 +78,7 @@ export default function Careers() {
             </div>
 
             {/* Right Silhouette Image */}
-            <div className="careers-img-container reveal reveal-delay-2">
+            <div className="careers-img-container reveal reveal-zoom reveal-delay-2">
               <Image src="/assets/images/careers_corporate.png" alt="Corporate Professionals Silhouette" fill sizes="(max-width: 991px) 100vw, 50vw" className="careers-img" />
             </div>
           </div>

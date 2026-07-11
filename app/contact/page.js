@@ -98,7 +98,7 @@ export default function Contact() {
         <div className="container">
           <div className="contact-grid">
             {/* Left Column: Info + Interior Image */}
-            <div className="contact-info-col reveal">
+            <div className="contact-info-col reveal reveal-left">
               <div>
                 <p className="section-description" style={{ maxWidth: '100%', marginBottom: '40px' }}>
                   Reach out to us for any inquiries or to discuss how we can help you achieve your business goals.
@@ -190,7 +190,7 @@ export default function Contact() {
             </div>
 
             {/* Right Column: Minimal Premium Contact Form */}
-            <div className="contact-form-container reveal reveal-delay-2">
+            <div className="contact-form-container reveal reveal-right reveal-delay-2">
               <h3 className="contact-form-title">Send Us a Message</h3>
               
               <form onSubmit={handleSubmit} noValidate>

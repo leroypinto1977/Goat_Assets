@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import ScrollRevealProvider from "@/components/ScrollRevealProvider";
 import SmoothScroll from "@/components/SmoothScroll";
 import Analytics from "@/components/Analytics";
-import CookieConsent from "@/components/CookieConsent";
 
 const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -22,7 +21,7 @@ const inter = Inter({
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.goatassets.com";
 
 const SITE_DESCRIPTION =
-  "GOAT Assets is a real estate advisory firm delivering strategic solutions that create measurable value across the real estate lifecycle.";
+  "GOAT Assets partners with India's leading developers to bring you handpicked premium properties — with every legal check and document verified before you buy.";
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -113,7 +112,6 @@ export default function RootLayout({ children }) {
         </ScrollRevealProvider>
         <Footer />
         <Analytics />
-        <CookieConsent />
       </body>
     </html>
   );

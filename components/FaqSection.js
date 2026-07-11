@@ -8,8 +8,8 @@ export default function FaqSection() {
       answer: "GOAT Assets provides advisory services across commercial offices, retail developments, industrial warehouses, premium residential projects, and mixed-use portfolios."
     },
     {
-      question: "What is your typical client engagement lifecycle?",
-      answer: "We follow a disciplined 5-step process: (1) Discovering goals, (2) Rigorous market analysis, (3) Tailored strategic recommendation, (4) Direct transaction support, and (5) Delivering long-term assets performance."
+      question: "Can you help with legal checks and property documentation?",
+      answer: "Yes — legal diligence is core to what we do. Before you commit to a property or land purchase, we verify title, encumbrances, RERA registration and statutory approvals, and support you through agreement, stamp duty and registration."
     },
     {
       question: "How does your fee structure work for transactions?",

@@ -25,8 +25,8 @@ export default function Services() {
             </p>
           </div>
 
-          {/* 8-Card Services Grid */}
-          <div className="services-grid">
+          {/* Services Grid — 3×3 */}
+          <div className="services-grid cols-3">
             {services.map((service, index) => (
               <Link
                 key={service.slug}

@@ -20,7 +20,7 @@ const categories = [
       {
         question: "Which advisory services do you offer?",
         answer:
-          "Investment, transactions, leasing, valuation, market research, asset management, project advisory and capital markets — covering the full real estate lifecycle.",
+          "Investment, transactions, legal & documentation, leasing, valuation, market research, asset management, project advisory and capital markets — covering the full real estate lifecycle.",
       },
       {
         question: "Do you work with both investors and occupiers?",
@@ -46,6 +46,26 @@ const categories = [
         question: "How long does a typical engagement take?",
         answer:
           "It depends on scope — a valuation may take a few weeks, while a complex transaction or development advisory mandate can run over several months. We agree timelines upfront.",
+      },
+    ],
+  },
+  {
+    title: "Legal & Documentation",
+    items: [
+      {
+        question: "What legal checks should I complete before buying property or land?",
+        answer:
+          "At minimum: title and ownership chain verification, an encumbrance certificate, RERA registration (for projects), sanctioned plans and land-use / conversion status. We run all of these checks for you as part of our legal and documentation service.",
+      },
+      {
+        question: "Do you handle the paperwork through to registration?",
+        answer:
+          "Yes. We review the agreement for sale, coordinate stamp duty and payment formalities, and support you through registration — alongside experienced legal counsel — until the transfer is clean and complete.",
+      },
+      {
+        question: "Can you verify a property from a developer you don't partner with?",
+        answer:
+          "Absolutely. Our document verification service is independent — whether or not the property comes through our developer partnerships, we apply the same diligence before you commit.",
       },
     ],
   },

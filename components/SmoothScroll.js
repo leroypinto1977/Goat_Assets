@@ -92,8 +92,8 @@ export default function SmoothScroll() {
         const viewportCenter = window.innerHeight / 2;
         const offset = (viewportCenter - elementCenter) * item.speed;
         
-        // Apply transform scale and translate
-        item.el.style.transform = `scale(1.15) translateY(${offset}px)`;
+        // Apply transform scale and translate — scale gives bleed so the frame never shows blank edges
+        item.el.style.transform = `scale(1.22) translateY(${offset}px)`;
       });
 
       animationFrame = requestAnimationFrame(update);
